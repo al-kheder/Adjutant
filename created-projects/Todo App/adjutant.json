@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "name": "Todo App",
+    "description": "A todo app with CRUD operations, calendar integration, prioritization, task completion notifications, and dependency management.",
+    "techStack": {
+      "framework": "React.js",
+      "language": "JavaScript",
+      "database": "MongoDB",
+      "styling": "Material-UI",
+      "deployment": "Node.js"
+    }
+  },
+  "features": [
+    {
+      "id": "crud-operations",
+      "name": "CRUD Operations",
+      "description": "Create, Read, Update, and Delete tasks",
+      "priority": "high",
+      "userStories": [
+        "As a user, I want to create new tasks",
+        "As a user, I want to read existing tasks"
+      ]
+    },
+    {
+      "id": "calendar-integration",
+      "name": "Calendar Integration",
+      "description": "Integrate calendar events with task scheduling",
+      "priority": "medium",
+      "userStories": [
+        "As a user, I want to schedule tasks on my calendar",
+        "As a user, I want to receive reminders for upcoming tasks"
+      ]
+    },
+    {
+      "id": "prioritization",
+      "name": "Prioritization",
+      "description": "Enable users to set priorities for their tasks",
+      "priority": "high",
+      "userStories": [
+        "As a user, I want to set priorities for my tasks",
+        "As a user, I want to view prioritized tasks"
+      ]
+    },
+    {
+      "id": "task-completion-notifications",
+      "name": "Task Completion Notifications",
+      "description": "Send notifications to users when tasks are completed",
+      "priority": "high",
+      "userStories": [
+        "As a user, I want to receive notifications when tasks are completed",
+        "As a user, I want to view task completion history"
+      ]
+    },
+    {
+      "id": "dependency-management",
+      "name": "Dependency Management",
+      "description": "Enable users to set dependencies between tasks",
+      "priority": "medium",
+      "userStories": [
+        "As a user, I want to set dependencies between tasks",
+        "As a user, I want to view dependency relationships"
+      ]
+    }
+  ],
+  "folderStructure": [
+    {
+      "name": "src",
+      "type": "file",
+      "description": "Source code directory"
+    },
+    {
+      "name": "public",
+      "type": "file",
+      "description": "Public directory for static assets"
+    },
+    {
+      "name": "node_modules",
+      "type": "file",
+      "description": "Dependency directory for installed packages"
+    }
+  ],
+  "databaseSchema": [
+    {
+      "name": "tasks",
+      "description": "Task schema with attributes (title, description, priority, due date, completion status)",
+      "fields": [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "priority",
+          "type": "integer"
+        },
+        {
+          "name": "dueDate",
+          "type": "date"
+        },
+        {
+          "name": "completionStatus",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "calendarEvents",
+      "description": "Calendar event schema with attributes (title, start date, end date)",
+      "fields": [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "startDate",
+          "type": "date"
+        },
+        {
+          "name": "endDate",
+          "type": "date"
+        }
+      ]
+    }
+  ],
+  "coreComponents": [
+    {
+      "name": "TaskList",
+      "type": "component",
+      "description": "Display list of tasks with CRUD operations"
+    },
+    {
+      "name": "TaskDetail",
+      "type": "component",
+      "description": "Display details for a single task with CRUD operations"
+    },
+    {
+      "name": "CalendarView",
+      "type": "component",
+      "description": "Display calendar view with scheduled tasks and reminders"
+    }
+  ]
+}
