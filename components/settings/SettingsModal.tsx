@@ -55,8 +55,8 @@ export default function SettingsModal() {
                                             key={p}
                                             onClick={() => setLocalSettings({ ...localSettings, activeProvider: p })}
                                             className={`flex-1 py-1.5 text-sm font-medium rounded-md capitalize transition-colors ${localSettings.activeProvider === p
-                                                    ? "bg-white text-blue-600 shadow-sm"
-                                                    : "text-gray-500 hover:text-gray-900"
+                                                ? "bg-white text-blue-600 shadow-sm"
+                                                : "text-gray-500 hover:text-gray-900"
                                                 }`}
                                         >
                                             {p}
@@ -121,6 +121,44 @@ export default function SettingsModal() {
                                             className="w-full px-3 py-2 border rounded-md text-sm"
                                         />
                                     </div>
+                                </div>
+                            )}
+
+                            {localSettings.activeProvider === 'anthropic' && (
+                                <div className="space-y-3 animate-in fade-in slide-in-from-top-2">
+                                    <div>
+                                        <label className="block text-xs font-semibold text-gray-500 mb-1">API Key</label>
+                                        <input
+                                            type="password"
+                                            value={localSettings.anthropic.apiKey}
+                                            onChange={(e) => setLocalSettings({
+                                                ...localSettings, anthropic: { ...localSettings.anthropic, apiKey: e.target.value }
+                                            })}
+                                            className="w-full px-3 py-2 border rounded-md text-sm"
+                                            placeholder="sk-ant-..."
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-semibold text-gray-500 mb-1">Model</label>
+                                        <input
+                                            type="text"
+                                            value={localSettings.anthropic.model}
+                                            onChange={(e) => setLocalSettings({
+                                                ...localSettings, anthropic: { ...localSettings.anthropic, model: e.target.value }
+                                            })}
+                                            className="w-full px-3 py-2 border rounded-md text-sm"
+                                            placeholder="claude-3-5-sonnet-20240620"
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
+                            {localSettings.activeProvider === 'mock' && (
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 text-center animate-in fade-in">
+                                    <p className="text-sm font-semibold text-gray-700">Mock Mode Active</p>
+                                    <p className="text-xs text-gray-500 mt-1">
+                                        Adjutant will use hardcoded responses for testing. No AI API calls will be made.
+                                    </p>
                                 </div>
                             )}
                         </div>
