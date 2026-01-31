@@ -32,6 +32,15 @@ export default function ChatInterface({ onBlueprintGenerated }: ChatInterfacePro
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const folderInputRef = useRef<HTMLInputElement>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    // Auto-resize textarea
+    useEffect(() => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 150)}px`;
+        }
+    }, [inputValue]);
 
     // Scroll to bottom
     useEffect(() => {
@@ -407,7 +416,8 @@ export default function ChatInterface({ onBlueprintGenerated }: ChatInterfacePro
                     </div>
 
                     <textarea
-                        className="flex-1 px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black text-sm min-h-[50px] max-h-[150px] resize-none"
+                        ref={textareaRef}
+                        className="flex-1 px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black text-sm min-h-[50px] max-h-[150px] resize-none overflow-y-auto"
                         placeholder="Describe your feature or attach docs/code..."
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
